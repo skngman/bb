@@ -3,8 +3,8 @@
 import urllib
 from urlparse import urlparse
 
-def getsearches():
-	file = '/home/adamchandler/Downloads/voyagerraw.txt'
+def getsearches(file):
+	#~ file = '/home/adamchandler/Downloads/voyagerraw.txt'
 	allsearches = []
 	with open(file) as f:
 	    lines = f.readlines()

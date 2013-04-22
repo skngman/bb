@@ -1,9 +1,12 @@
 #!/usr/bin/python
 
+import sys
 import nltk
-import mvoyager
 
-v = mvoyager.getsearches()	
-print len(v)
+if 'voyager' in sys.argv[1]:
+	print 'choice = voyager'
+	import mvoyager
+	v = mvoyager.getsearches(sys.argv[2])	
+	print len(v)
 
 
