@@ -2,7 +2,7 @@
 # best bet 
 
 import sys
-import nltk
+#import nltk
 
 if 'voyager' in sys.argv[1]:
 	print 'choice = voyager'

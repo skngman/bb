@@ -4,7 +4,6 @@ import urllib
 from urlparse import urlparse
 
 def getsearches(file):
-	#~ file = '/home/adamchandler/Downloads/voyagerraw.txt'
 	allsearches = []
 	with open(file) as f:
 	    lines = f.readlines()
@@ -16,6 +15,7 @@ def getsearches(file):
 			for val in q:
 				if 'Search_Arg' in val:
 					thesearch = val.split('=')[1].replace('+', ' ')
+					print thesearch
 					allsearches.append(urllib.unquote(thesearch).strip())
 	
 	return allsearches
