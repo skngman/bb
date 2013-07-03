@@ -1,9 +1,7 @@
-#!/usr/bin/python
 
-import urllib
-from urlparse import urlparse
-
-def getsearches(file):
+def geturlsearches(file):
+	import urllib
+	from urlparse import urlparse
 	import re
 	allsearches = []
 	with open(file) as f:
@@ -25,4 +23,3 @@ def getsearches(file):
 						allsearches.append(thesearch)
 
 	return allsearches
-

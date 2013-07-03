@@ -4,28 +4,39 @@
 import sys
 import os
 import pandas as pd
+import logparsers
 
 os.linesep = '\n'
 #import nltk
 
-if 'voyager' in sys.argv[1]:
-	print 'choice = voyager'
-	import mvoyager
-	v = mvoyager.getsearches(sys.argv[2])	
-	print len(v)
+if len(sys.argv) < 3:
+	print "USAGE:    python ./bb.py logtype inputfilename" 
+	print ""
+	print "syntax to run program:"
+	print "argv(0) is the log type"
+	print "argv(1) is the file to analyze"
+	sys.exit(0)
 
 if 'libguides' in sys.argv[1]:
 	inputpathfile = 'input/' + sys.argv[1] + '/' + sys.argv[2]
-	print inputpathfile
-	import mlibguides
-	v = mlibguides.getsearches(inputpathfile)
+	print inputpathfile	
+	v = logparsers.geturlsearches(inputpathfile)
 	v.sort()
 	weillseries = pd.Series(v)
 	print weillseries.count()
 	outputpathfile = 'output/' + sys.argv[1] + '/' + sys.argv[2] + '-out.csv'
 	print outputpathfile
 	weillseries.value_counts().to_csv(outputpathfile)
-	
+
+
+if 'voyager' in sys.argv[1]:
+	print 'choice = voyager'
+	#import mvoyager
+	v = mvoyager.getsearches(sys.argv[2])	
+	print len(v)
+
+
+
 
 
 #	v.sort()
