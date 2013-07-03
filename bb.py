@@ -23,6 +23,7 @@ if 'libguides' in sys.argv[1]:
 	v = logparsers.geturlsearches(inputpathfile)
 	v.sort()
 	searchseries = pd.Series(v)
+	print searchseries[:10]
 	outputpathfile = 'output/' + sys.argv[1] + '/' + sys.argv[2] + '-out.csv'
 	print outputpathfile
 	print "search term count: " + str(searchseries.count())
