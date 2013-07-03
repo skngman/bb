@@ -22,11 +22,11 @@ if 'libguides' in sys.argv[1]:
 	print inputpathfile	
 	v = logparsers.geturlsearches(inputpathfile)
 	v.sort()
-	weillseries = pd.Series(v)
-	print weillseries.count()
+	searchseries = pd.Series(v)
 	outputpathfile = 'output/' + sys.argv[1] + '/' + sys.argv[2] + '-out.csv'
 	print outputpathfile
-	weillseries.value_counts().to_csv(outputpathfile)
+	print "search term count: " + str(searchseries.count())
+	searchseries.value_counts().to_csv(outputpathfile)
 
 
 if 'voyager' in sys.argv[1]:
